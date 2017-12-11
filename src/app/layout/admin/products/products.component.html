@@ -1,0 +1,15 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">List Products</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4"
+         *ngFor="let product of products">
+      <app-product-list [product]="product"></app-product-list>
+    </div>
+  </div>
+</div>

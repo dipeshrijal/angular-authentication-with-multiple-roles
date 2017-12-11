@@ -1,0 +1,87 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Add Products</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+<div class="container">
+  <form novalidate
+        [formGroup]="product"
+        (ngSubmit)="addProduct()"
+  >
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="text"
+               formControlName="name"
+               class="form-control"
+               [ngClass]="isValid('name')"
+               id="name"
+        >
+        <div class="invalid-feedback">
+          Please provide a valid name.
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="size">Brand</label>
+        <select id="brand"
+                [formControlName]="'brand'"
+                [ngClass]="isValid('brand')"
+                class="form-control"
+        >
+          <option *ngFor="let brand of brands" value="{{brand._id}}">{{brand.name}}</option>
+        </select>
+        <div class="invalid-feedback">
+          Please provide a valid brand.
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="price">Price</label>
+        <input type="text"
+               formControlName="price"
+               class="form-control"
+               [ngClass]="isValid('price')"
+               id="price"
+        >
+        <div class="invalid-feedback">
+          Please provide a valid price.
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="size">Size</label>
+        <select id="size"
+                [formControlName]="'size'"
+                [ngClass]="isValid('size')"
+                class="form-control"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <div class="invalid-feedback">
+          Please provide a valid size.
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="quantity">Quantity</label>
+        <input type="text"
+               formControlName="quantity"
+               class="form-control"
+               [ngClass]="isValid('quantity')"
+               id="quantity"
+        >
+        <div class="invalid-feedback">
+          Please provide a valid quantity.
+        </div>
+      </div>
+    </div>
+    <button type="submit"
+            [disabled]="product.invalid"
+            class="btn btn-block btn-success float-right"
+    >Submit
+    </button>
+  </form>
+
+</div>
